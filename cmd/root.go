@@ -25,7 +25,7 @@ var rootCmd = &cobra.Command{
 	Use: "app-covid-19",
 	Run: func(cmd *cobra.Command, args []string) {
 		var router = mux.NewRouter()
-		var port = ":8081"
+		var port = ":80"
 
 		router.HandleFunc("/summary", func(w http.ResponseWriter, r *http.Request) {
 			result, err := dbPool.Query("SELECT Country, CountryCode, NewConfirmed, TotalConfirmed, NewDeaths, NewRecovered, LastUpdate FROM covid_summary ORDER BY Country ASC")
